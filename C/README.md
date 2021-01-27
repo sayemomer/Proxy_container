@@ -6,5 +6,5 @@
 # Setup
 
 * Start with Docker:
-    ```$ docker build -t movie . ```
-    ```$ docker run -p 5000:5000 movie```
+    ```$ docker build -t taskc . ```
+    ```$ docker run -p 5000:5000 taskc```
