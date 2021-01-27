@@ -6,6 +6,7 @@ except Exception as e:
     print("Not a valid test case:",e)
     exit(1) 
 fmt = '%a %d %b %Y %H:%M:%S %z'
+
 def checkInput(d):
     try:
         dt=datetime.strptime(d, fmt)
