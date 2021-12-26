@@ -1,14 +1,14 @@
 
 # requirements
 
-* docker
+* Post installation steps for linux: https://docs.docker.com/engine/install/linux-postinstall/
+
+* Install docker engine on ubuntu: https://docs.docker.com/engine/install/ubuntu/
 
 # Setup
 
-* Start with Docker:
-    ```$ docker build -t taskc . ```
-    ```$ docker run -p 5000:5000 taskc```
-
+* Build the docker file: docker build -t taskc .
+* Run the docker Image from registry: docker run -p 5000:5000 taskc
 * docker run -p 5000:5000 taskc -d : running in background
 * docker ps: lists the containers that are still running. Add the -a switch in order to see containers that have stopped
 * docker logs: retrieves the logs of a container, even when it has stopped
