@@ -14,3 +14,4 @@
 * docker inspect: gets detailed information about a running or stopped container
 * docker stop: stops a container that is still running
 * docker rm: deletes a container
+* docker container prune -f: This is the equivalent of running one docker rm command for each stopped container.
