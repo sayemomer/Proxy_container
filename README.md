@@ -75,7 +75,17 @@ Example:
 
 * Install docker engine on ubuntu: https://docs.docker.com/engine/install/ubuntu/
 
+
+# NGINX setup
+
+* Change in local directory: sudo nano /etc/nginx/nginx.conf
+* Reload nginx: sudo systemctl reload nginx
+* Check status: sudo systemctl status nginx
+
 # Setup
+
+* Install docker-compose: sudo apt  install docker-compose
+* Run:  docker-compose up
 
 * docker build -t task . : Build the docker file
 * docker run --rm -it -p 5000:5000 task : Run the docker Image from registry

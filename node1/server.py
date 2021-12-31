@@ -23,7 +23,8 @@ class Server:
                 return error_text
             else:
                 result = obj.calculator(input_data[1:])
+                result.append("I am from node1")
                 print(result)
                 return jsonify(result)
 
-        app.run(host='0.0.0.0',port=5000)
+        app.run(host='0.0.0.0')

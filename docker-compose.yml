@@ -1,0 +1,17 @@
+version: '3'
+services:
+  node1:
+    build: ./node1
+    ports:
+      - "5001:5000"
+  node2:
+    build: ./node2
+    ports:
+      - "5002:5000"
+  # nginx:
+  #   build: ./nginx
+  #   ports:
+  #     - "8080:80"
+  #   depends_on:
+  #     - node1
+  #     - node2
