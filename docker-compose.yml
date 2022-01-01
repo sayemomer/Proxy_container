@@ -1,4 +1,4 @@
-version: '3'
+version: "3.9"
 services:
   node1:
     build: ./node1
@@ -8,10 +8,10 @@ services:
     build: ./node2
     ports:
       - "5002:5000"
-  # nginx:
-  #   build: ./nginx
-  #   ports:
-  #     - "8080:80"
-  #   depends_on:
-  #     - node1
-  #     - node2
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - node1
+      - node2

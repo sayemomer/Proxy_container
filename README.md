@@ -1,67 +1,17 @@
 
-# Problem
-
-When users post an update on social media,such as a URL, image, status update etc., other users
-in their network are able to view this new post on their news feed. Users can also see exactly when
-the post was published, i.e, how many hours, minutes or seconds ago.
-Since sometimes posts are published and viewed in different time zones, this can be confusing. You
-are given two timestamps of one such post that a user can see on his newsfeed in the following
-format:
-**Day dd Mon yyyy hh:mm:ss +xxxx**
-Here +xxxx represents the time zone. Your task is to print the absolute difference (in seconds)
-between them.
-
-## Input Format:
-
-The first line contains T, the number of test cases.
-Each test case contains 2 lines, representing time t1 and time t2.
-
-## Constraints:
-1. Input contains only valid timestamps
-2. year<=3000
-
-## Output Format:
-Print the absolute difference (t1-t2) in seconds.
-
-### Sample Input:
-* 2
-* Sun 10 May 2015 13:54:36 -0700
-* Sun 10 May 2015 13:54:36 -0000
-* Sat 02 May 2015 19:54:36 +0530
-* Fri 01 May 2015 13:54:36 -0000
-
-### Sample Output:
-- 25200
-- 88200
-
-## Explanation:
-In the first query, when we compare the time in UTC for both the time stamps, we see a difference of
-7 hours. which is 7x3600 seconds or 25200 seconds.
-Similarly, in the second query, time difference is 5 hours and 30 minutes for time zone adjusting for
-that we have a difference of 1 day and 30 minutes. Or 24x3600+30x60 => 88200
+# Solution 1 (NGINX on host machine)
 
 
-# Task 
+![alt text](./image/naive_nginx.jpg)
 
-A python service which will take Task as an input(plain text with new line) through python
-rest api. Output will be the same as Task response. Response will be an ordered json array
-with the result.
-Example: [ "25200", "88200" ]
-
-Containerize(docker) and run at least two images so that any app instance can
-provide the result as response. Also add node id from which node it is serving.
-Example:
-{
-"id":"YOUR_NODE_ID",
-"result":[ "25200", "88200"]
-}
+This solution used DockerFile and host nginx server to proxy service. Despite the first time configuration in host machine, it runs smoothly. However, this is not easyly shipable because of the configuration workload for each host machine.
 
 
----
----
+# Solution 2 (Docker-compose)
 
+![alt text](./image/compose_nginx.jpg)
 
-
+Docker-compose solve the problem of above mentioned. Composing the whole solution needs only one command(docker-compose up) to bootstrap the system.Although compose use slightly complex internall networking, portabily of this has great resuabitly and easy setup.
 
 # Requirements
 
@@ -112,6 +62,11 @@ Example:
 * active vertualenv : $ source venv/bin/activate
 * install dependencies: $ pip3 install -r requirements.txt
 * Start the server: $ python3 main.py
+
+## Utility
+
+* Check the process in a given port : sudo lsof -i :8080
+* Kill process ID : sudo kill -9 13908
 
 # Sample I/O
 
