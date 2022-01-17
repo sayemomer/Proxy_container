@@ -1,17 +1,8 @@
 version: "3.9"
 services:
-  node1:
-    build: ./node1
+  web:
+    image: sayemomer/proxy_container:1.0
     ports:
-      - "5001:5000"
-  node2:
-    build: ./node2
-    ports:
-      - "5002:5000"
-  nginx:
-    build: ./nginx
-    ports:
-      - "8080:80"
-    depends_on:
-      - node1
-      - node2
+      - "5000:5000"
+    deploy: 
+      replicas: 30

@@ -2,6 +2,7 @@ from flask import Flask,request,jsonify
 import numpy as np
 import json
 from absolute_calculator import AbsoluteDifference
+import os
 
 
 
@@ -23,7 +24,7 @@ class Server:
                 return error_text
             else:
                 result = obj.calculator(input_data[1:])
-                result.append("I am from node1")
+                result.append()
                 print(result)
                 return jsonify(result)
 
